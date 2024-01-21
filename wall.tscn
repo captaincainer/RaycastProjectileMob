@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://f658a6s3r17k"]
+
+[ext_resource type="Texture2D" uid="uid://c514kbqolda0k" path="res://icon.svg" id="1_byicl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffv02"]
+size = Vector2(196, 10)
+
+[node name="Wall" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.53125, 0.0800002)
+texture = ExtResource("1_byicl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ffv02")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -5.0
+offset_right = 8.0
+offset_bottom = 18.0
+scale = Vector2(1.60084, 0.423809)
+text = "Wall"
+horizontal_alignment = 1

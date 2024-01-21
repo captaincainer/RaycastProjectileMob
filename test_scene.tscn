@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0a745uyg8jie"]
+
+[ext_resource type="PackedScene" uid="uid://8ewndy2rqibh" path="res://RaycastProjectileProject/player.tscn" id="1_5fuy1"]
+[ext_resource type="PackedScene" uid="uid://cngwoumyj5fu7" path="res://RaycastProjectileProject/turret.tscn" id="2_ks72e"]
+[ext_resource type="PackedScene" uid="uid://f658a6s3r17k" path="res://RaycastProjectileProject/wall.tscn" id="3_arb4u"]
+
+[node name="Test_scene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5fuy1")]
+position = Vector2(394, 291)
+
+[node name="Turret" parent="." instance=ExtResource("2_ks72e")]
+position = Vector2(396, 125)
+
+[node name="Wall" parent="." instance=ExtResource("3_arb4u")]
+position = Vector2(394, 216)

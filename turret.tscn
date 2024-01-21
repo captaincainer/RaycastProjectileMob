@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cngwoumyj5fu7"]
+
+[ext_resource type="Texture2D" uid="uid://c514kbqolda0k" path="res://icon.svg" id="1_tumoc"]
+[ext_resource type="Script" path="res://RaycastProjectileProject/turret.gd" id="1_wmtee"]
+[ext_resource type="PackedScene" uid="uid://c2y6cp4be5bh7" path="res://RaycastProjectileProject/bullets.tscn" id="2_hrjav"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_wmtee")
+ammo = ExtResource("2_hrjav")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tumoc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -63.0
+offset_right = 25.0
+offset_bottom = -40.0
+text = "Turret
+"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="PlayerDetection" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PlayerDetection" to="." method="_on_player_detection_timeout"]
