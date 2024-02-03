@@ -3,7 +3,8 @@ extends Node2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var attack_timer: Timer = $Timer
 @onready var player_detection: Timer = $PlayerDetection
-@onready var player: CharacterBody2D = get_parent().find_child("Player")
+@onready var player: CharacterBody2D = get_parent().get_parent().get_parent().find_child("Player")
+@onready var path_follow_2d: PathFollow2D = get_parent()
 
 @export var ammo: PackedScene
 
@@ -57,7 +58,7 @@ func _on_timer_timeout() -> void:
 ## Instantiate the ammo, assign the position and the direction baased on the raycast and Turret's position, and add's it to the scene
 func _shoot():
 	var bullet = ammo.instantiate()
-	bullet.position = position
+	bullet.position = global_position
 	bullet.direction = (ray_cast.target_position).normalized()
 	get_tree().current_scene.add_child(bullet)
 

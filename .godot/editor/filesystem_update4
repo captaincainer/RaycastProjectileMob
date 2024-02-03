@@ -1,1 +1,4 @@
 res://RaycastProjectileProject/test_scene.tscn
+res://RaycastProjectileProject/turret.tscn
+res://RaycastProjectileProject/turret.gd
+res://RaycastProjectileProject/bullets.tscn

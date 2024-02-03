@@ -1,16 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0a745uyg8jie"]
+[gd_scene load_steps=6 format=3 uid="uid://d0a745uyg8jie"]
 
 [ext_resource type="PackedScene" uid="uid://8ewndy2rqibh" path="res://RaycastProjectileProject/player.tscn" id="1_5fuy1"]
 [ext_resource type="PackedScene" uid="uid://cngwoumyj5fu7" path="res://RaycastProjectileProject/turret.tscn" id="2_ks72e"]
+[ext_resource type="Script" path="res://RaycastProjectileProject/PathFollow2D.gd" id="3_3vpfl"]
 [ext_resource type="PackedScene" uid="uid://f658a6s3r17k" path="res://RaycastProjectileProject/wall.tscn" id="3_arb4u"]
+
+[sub_resource type="Curve2D" id="Curve2D_nu0lh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 121, 119, 0, 0, 0, 0, 706, 120, 0, 0, 0, 0, 705, 113, 0, 0, 0, 0, 120, 113, 0, 0, 0, 0, 121, 119)
+}
+point_count = 5
 
 [node name="Test_scene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5fuy1")]
 position = Vector2(394, 291)
 
-[node name="Turret" parent="." instance=ExtResource("2_ks72e")]
-position = Vector2(396, 125)
-
 [node name="Wall" parent="." instance=ExtResource("3_arb4u")]
 position = Vector2(394, 216)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nu0lh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(390.049, 119.46)
+rotation = 0.0017094
+progress = 269.049
+rotates = false
+script = ExtResource("3_3vpfl")
+
+[node name="Turret" parent="Path2D/PathFollow2D" instance=ExtResource("2_ks72e")]
