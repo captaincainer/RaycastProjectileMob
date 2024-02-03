@@ -1,0 +1,12 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1706923345
+icon.svg::CompressedTexture2D::6933959226753139428::1705864544::1705864553::1::::<><>::
+::res://RaycastProjectileProject/::1705876866
+bullets.gd::GDScript::-1::1705871560::0::1::::<>Area2D<>::
+bullets.tscn::PackedScene::6719371842775622818::1705876866::0::1::::<><>::uid://c514kbqolda0k::::res://icon.svg<>res://RaycastProjectileProject/bullets.gd
+player.gd::GDScript::-1::1705871573::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::2325848536128402361::1705876866::0::1::::<><>::res://RaycastProjectileProject/player.gd<>uid://c514kbqolda0k::::res://icon.svg
+test_scene.tscn::PackedScene::8915979481518250144::1705876866::0::1::::<><>::uid://8ewndy2rqibh::::res://RaycastProjectileProject/player.tscn<>uid://cngwoumyj5fu7::::res://RaycastProjectileProject/turret.tscn<>uid://f658a6s3r17k::::res://RaycastProjectileProject/wall.tscn
+turret.gd::GDScript::-1::1705874639::0::1::::<>Node2D<>::
+turret.tscn::PackedScene::5699044446268831196::1705876866::0::1::::<><>::uid://c514kbqolda0k::::res://icon.svg<>res://RaycastProjectileProject/turret.gd<>uid://c2y6cp4be5bh7::::res://RaycastProjectileProject/bullets.tscn
+wall.tscn::PackedScene::416820418292761722::1705876866::0::1::::<><>::uid://c514kbqolda0k::::res://icon.svg
