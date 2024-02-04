@@ -1,5 +1,8 @@
 extends Node2D
 
+signal see_player_signal
+signal lost_player_signal
+
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var attack_timer: Timer = $Timer
 @onready var player_detection: Timer = $PlayerDetection
@@ -30,6 +33,7 @@ func _check_player_collision():
 		
 		## Another debugging component to see if the turret sees the player
 		see_player = true
+		emit_signal("see_player_signal")
 		print_debug(see_player)
 		
 		## This stops the player_detection timer if it sees the player
@@ -66,6 +70,7 @@ func _shoot():
 ## This timer timeout stops the chase if it doesn't see the player, otherwise it loops back to check the player collision
 func _on_player_detection_timeout() -> void:
 	if ray_cast.get_collider() != player:
+		emit_signal("lost_player_signal")
 		print_debug("Cease chasing")
 	else:
 		_check_player_collision()
