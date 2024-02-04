@@ -1,5 +1,7 @@
-res://RaycastProjectileProject/test_scene.tscn
-res://RaycastProjectileProject/PathFollow2D.gd
 res://RaycastProjectileProject/turret.tscn
-res://RaycastProjectileProject/bullets.tscn
 res://RaycastProjectileProject/turret.gd
+res://RaycastProjectileProject/test_scene.tscn
+res://RaycastProjectileProject/bullets.tscn
+res://RaycastProjectileProject/PathFollow2D.gd
+res://RaycastProjectileProject/wall.tscn
+res://RaycastProjectileProject/player.tscn

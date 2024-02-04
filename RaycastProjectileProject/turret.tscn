@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cngwoumyj5fu7"]
+[gd_scene load_steps=5 format=3 uid="uid://cngwoumyj5fu7"]
 
 [ext_resource type="Texture2D" uid="uid://c514kbqolda0k" path="res://icon.svg" id="1_tumoc"]
 [ext_resource type="Script" path="res://RaycastProjectileProject/turret.gd" id="1_wmtee"]
 [ext_resource type="PackedScene" uid="uid://c2y6cp4be5bh7" path="res://RaycastProjectileProject/bullets.tscn" id="2_hrjav"]
 
-[node name="Turret" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdtow"]
+size = Vector2(63, 62)
+
+[node name="Turret" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_wmtee")
 ammo = ExtResource("2_hrjav")
+speed = 100
+acceleration = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_mdtow")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -29,5 +40,14 @@ wait_time = 0.4
 [node name="PlayerDetection" type="Timer" parent="."]
 one_shot = true
 
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+
+[node name="NavAgentTimer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PlayerDetection" to="." method="_on_player_detection_timeout"]
+[connection signal="timeout" from="Navigation/NavAgentTimer" to="." method="_on_nav_agent_timer_timeout"]

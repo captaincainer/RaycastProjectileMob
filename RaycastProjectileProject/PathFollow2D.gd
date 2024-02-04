@@ -3,7 +3,8 @@ extends PathFollow2D
 @onready var turret: Node2D = $Turret
 
 var speed: float = 0.1
-var can_progress: bool = true
+var can_progress: bool = false
+var starting_progress: float
 
 
 func _ready() -> void:
@@ -22,4 +23,4 @@ func _stop_progress() -> void:
 
 
 func _resume_progress() -> void:
-	can_progress = true
+	pass
