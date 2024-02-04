@@ -17,6 +17,7 @@ signal lost_player_signal
 @export var target: CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $Navigation/NavigationAgent2D
 var direction := Vector2.ZERO
+var see_player: bool = false
 var is_chasing: bool = false
 
 ## This is for returning to the patrol path
@@ -26,8 +27,7 @@ var is_returning: bool = false
 var current_position: Vector2
 var distance_threshold: float = 10.0
 
-## This is for helping debug that the enemy cannot see the player
-var see_player: bool = false
+
 
 
 func _ready() -> void:
