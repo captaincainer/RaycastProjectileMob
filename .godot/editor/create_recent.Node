@@ -1,4 +1,6 @@
 Marker2D
+Camera2D
+Label
 NavigationRegion2D
 TileMap
 CollisionShape2D
@@ -9,6 +11,4 @@ NavigationAgent2D
 PathFollow2D
 Path2D
 RayCast2D
-Label
 Sprite2D
-StaticBody2D

@@ -1,21 +1,21 @@
 extends PathFollow2D
 
 @onready var turret: Node2D = $Turret
+@onready var enemy_origin: Marker2D = $"../../EnemyOrigin"
 
 var speed: float = 0.1
-var can_progress: bool = false
-var starting_progress: float
+var can_progress: bool = true
 
 
 func _ready() -> void:
-	progress_ratio = 0.22
 	turret.connect("see_player_signal", _stop_progress)
 	turret.connect("lost_player_signal", _resume_progress)
-
 
 func _process(delta: float) -> void:
 	if can_progress:
 		progress_ratio += delta * speed
+	
+	enemy_origin.position = position
 
 
 func _stop_progress() -> void:
@@ -23,4 +23,4 @@ func _stop_progress() -> void:
 
 
 func _resume_progress() -> void:
-	pass
+	can_progress = true
